@@ -20,7 +20,7 @@ foreach($repo in $repos) {
     $appJson=Invoke-VSTeamRequest -version 5.1 -method get -Url "$($info.Account)/$ProjectName/_apis/git/repositories/$($repo.Name)/items?path=$($AppJsonPath)/app.json" -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
     foreach($dep in $appJson.dependencies) {
         if ($IncludeMicrosoft -or ($dep.publisher -ne 'Microsoft')) {
-            Write-Host "    ""$($dep.name)""->""$($appJson.name)"""
+            Write-Host "    ""$($appJson.name)""->""$($dep.name)"""
         }
     }
 }
