@@ -34,7 +34,7 @@ foreach($repo in ($repos | Sort-Object -Property name)) {
         foreach($dep in $appJson.dependencies) {
             if ($IncludeMicrosoft -or ($dep.publisher -ne 'Microsoft')) {
                 if ($Mermaid) {
-                    Write-Host "$($appJson.name -replace ' ','')-->$($dep.name -replace ' ','');"
+                    Write-Host "$($dep.name -replace ' ','')-->$($appJson.name -replace ' ','');"
                 } else {
                     Write-Host "    ""$($appJson.name)""->""$($dep.name)"""
                 }
